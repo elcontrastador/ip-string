@@ -16,3 +16,4 @@ testData.map(rec => {
   console.assert(ipDecToBin(rec.ip) == rec.bin, `${rec.ip} !== '${rec.bin}'`);
 });
 
+exports.ipDecToBin = ipDecToBin;

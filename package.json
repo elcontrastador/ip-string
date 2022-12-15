@@ -1,12 +1,21 @@
 {
-  "name": "ip",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "ip-string-manip",
+  "version": "1.0.2",
+  "description": "IP string manipulation",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "inet",
+    "ip",
+    "manip",
+    "string",
+    "bitString"
+  ],
+  "author": "Tyler Arrigoni <tyler@oneif.net>",
+  "license": "ISC",
+  "dependencies": {
+    "ip-string-manip": "^1.0.1"
+  }
 }
