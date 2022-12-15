@@ -1,21 +1,25 @@
 {
-  "name": "ip-string-manip",
+  "name": "@elcontrastador/ip-string",
   "version": "1.0.2",
-  "description": "IP string manipulation",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "IP String Manipulation",
+  "main": "./dist/index.js",
+  "bin": {
+    "ip-string": "./bin/t1.js"
   },
-  "keywords": [
-    "inet",
-    "ip",
-    "manip",
-    "string",
-    "bitString"
-  ],
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "./bin/t1.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elcontrastador/ip-decbin-manip.git"
+  },
   "author": "Tyler Arrigoni <tyler@oneif.net>",
   "license": "ISC",
-  "dependencies": {
-    "ip-string-manip": "^1.0.1"
-  }
+  "bugs": {
+    "url": "https://github.com/elcontrastador/ip-decbin-manip/issues"
+  },
+  "homepage": "https://github.com/elcontrastador/ip-decbin-manip#readme"
 }
