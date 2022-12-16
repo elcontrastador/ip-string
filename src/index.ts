@@ -1,4 +1,4 @@
-const ipHasFourOctetsWithOnlyDigits = (ip: string): boolean => {
+export const ipHasFourOctetsWithOnlyDigits = (ip: string): boolean => {
   try {
     return ip?.match(/^(\d{1,3}[.]){3}\d{1,3}$/) ? true : false;
   } catch (e) {
@@ -6,7 +6,7 @@ const ipHasFourOctetsWithOnlyDigits = (ip: string): boolean => {
   }
 }
 
-const ipHasFourOctetsWithinMinMax = (ip: string): boolean => {
+export const ipHasFourOctetsWithinMinMax = (ip: string): boolean => {
   try {
     const octs = ip.split('.')
       .map(oct => parseInt(oct))
@@ -26,7 +26,6 @@ export const ipIsValid = (ip: string): boolean => {
   return ipHasFourOctetsWithOnlyDigits(ip) &&
     ipHasFourOctetsWithinMinMax(ip) ? true : false;
 }
-
 
 //in: 'xxx.xxx.xxx.xxx', out: '1010101010101010100110101' (32b as str)
 export const ipDecToBin = (ip: string): string | never => {
@@ -74,29 +73,29 @@ const testData: { ip: string, bin: string }[] = [
   { ip: '172.30.14.101', bin: '10101100000111100000111001100101' }
 ]
 
-testData.map(rec => {
-  console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.') == false, '10.1.2.');
-  console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.3') == true, '10.1.2.3');
-  console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.3.5') == false, '10.1.2.3.5');
-  console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.300') == true, '10.1.2.300');
-  console.assert(ipHasFourOctetsWithinMinMax('10.1.2.300') == false, '10.1.2.300');
-  console.assert(ipHasFourOctetsWithinMinMax('10.1.2.') == false, '10.1.2.300');
-  // console.assert(ipHasFourOctetsWithinMinMax('10.1.2.254.d') == false, '10.1.2.254.d');
-  console.assert(ipHasFourOctetsWithinMinMax('a.10.1.2.254') == false, 'a.10.1.2.254');
-  // console.log(validIpDecNotation(rec.ip));
-  // console.log(validIpDecNotation('1.2.3.256'))
-  console.assert(ipDecToBin(rec.ip) === rec.bin, `${rec.ip} !== '${rec.bin}'`);
-  // console.log(ipDecToBin('10.1.2a.3')) //throw error
-  // console.log(ipDecToBin('10.1.2.256')) //throw error
-  // console.log(ipDecToBin('10.1.2')) //throw error
-  // console.log(ipDecToBin('10.1.2.255.1')) //throw error
-  // console.log(ipDecToBin('1')) //throw error
-  // console.log(ipDecToBin('300.10.2.3')); //throw error
-  console.assert(ipBinToDec(rec.bin) === rec.ip, `${rec.bin} !== '${rec.ip}'`);
-  // console.log(`${ipBinToDec(rec.bin)}: ${ipDecToBin(rec.ip)}`);
-  // console.assert(ipBinToDec(rec.bin + '1')); //throw error
-  // console.assert(ipBinToDec(rec.bin.slice(0, 31))); //throw error
-});
+// testData.map(rec => {
+//   console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.') == false, '10.1.2.');
+//   console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.3') == true, '10.1.2.3');
+//   console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.3.5') == false, '10.1.2.3.5');
+//   console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.300') == true, '10.1.2.300');
+//   console.assert(ipHasFourOctetsWithinMinMax('10.1.2.300') == false, '10.1.2.300');
+//   console.assert(ipHasFourOctetsWithinMinMax('10.1.2.') == false, '10.1.2.300');
+//   // console.assert(ipHasFourOctetsWithinMinMax('10.1.2.254.d') == false, '10.1.2.254.d');
+//   console.assert(ipHasFourOctetsWithinMinMax('a.10.1.2.254') == false, 'a.10.1.2.254');
+//   // console.log(validIpDecNotation(rec.ip));
+//   // console.log(validIpDecNotation('1.2.3.256'))
+//   console.assert(ipDecToBin(rec.ip) === rec.bin, `${rec.ip} !== '${rec.bin}'`);
+//   // console.log(ipDecToBin('10.1.2a.3')) //throw error
+//   // console.log(ipDecToBin('10.1.2.256')) //throw error
+//   // console.log(ipDecToBin('10.1.2')) //throw error
+//   // console.log(ipDecToBin('10.1.2.255.1')) //throw error
+//   // console.log(ipDecToBin('1')) //throw error
+//   // console.log(ipDecToBin('300.10.2.3')); //throw error
+//   console.assert(ipBinToDec(rec.bin) === rec.ip, `${rec.bin} !== '${rec.ip}'`);
+//   // console.log(`${ipBinToDec(rec.bin)}: ${ipDecToBin(rec.ip)}`);
+//   // console.assert(ipBinToDec(rec.bin + '1')); //throw error
+//   // console.assert(ipBinToDec(rec.bin.slice(0, 31))); //throw error
+// });
 
 exports.ipDecToBin = ipDecToBin;
 
