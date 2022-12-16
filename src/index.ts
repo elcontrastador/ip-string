@@ -81,6 +81,8 @@ testData.map(rec => {
   console.assert(ipHasFourOctetsWithOnlyDigits('10.1.2.300') == true, '10.1.2.300');
   console.assert(ipHasFourOctetsWithinMinMax('10.1.2.300') == false, '10.1.2.300');
   console.assert(ipHasFourOctetsWithinMinMax('10.1.2.') == false, '10.1.2.300');
+  // console.assert(ipHasFourOctetsWithinMinMax('10.1.2.254.d') == false, '10.1.2.254.d');
+  console.assert(ipHasFourOctetsWithinMinMax('a.10.1.2.254') == false, 'a.10.1.2.254');
   // console.log(validIpDecNotation(rec.ip));
   // console.log(validIpDecNotation('1.2.3.256'))
   console.assert(ipDecToBin(rec.ip) === rec.bin, `${rec.ip} !== '${rec.bin}'`);
