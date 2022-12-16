@@ -43,7 +43,7 @@ export const ipDecToBin = (ip: string): string | never => {
   }
 };
 
-const ipBinStringIsValid = (binIp: string): boolean => {
+export const ipBinStringIsValid = (binIp: string): boolean => {
   try {
     if (!binIp.match(/^[01]{32}$/)) {
       throw "nope";
@@ -56,13 +56,13 @@ const ipBinStringIsValid = (binIp: string): boolean => {
 
 //TODO
 export const ipBinToDec = (binIp: string): string => {
-  const throwMsg = `Invalid 32-bit binary IP string representation: ${binIp}`;
-  if (!binIp.match(/^[01]{32}$/)) { throw throwMsg; }
+  if (!ipBinStringIsValid(binIp)) { throw "invalid" }
   const octs = binIp.match(/[01]{8}/g);
   if (octs?.length === 4) {
     return octs.map(oct => parseInt(oct, 2).toString()).join('.');
   } else {
-    throw throwMsg;
+    throw `Invalid 32-bit binary IP string representation: ${binIp}`;
+    // throw throwMsg;
   }
 }
 

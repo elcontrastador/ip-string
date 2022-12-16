@@ -1,5 +1,12 @@
 import { describe, expect, test } from '@jest/globals';
-import { ipDecToBin, ipBinToDec, ipHasFourOctetsWithinMinMax, ipHasFourOctetsWithOnlyDigits } from '../src/index';
+import {
+  ipDecToBin,
+  ipBinToDec,
+  ipHasFourOctetsWithinMinMax,
+  ipHasFourOctetsWithOnlyDigits,
+  ipIsValid,
+  ipBinStringIsValid
+} from '../src/index';
 
 const testDataTrue: { ip: string, bin: string }[] = [
   { ip: '123.213.130.119', bin: '01111011110101011000001001110111' },
@@ -52,5 +59,22 @@ describe('IP decimal string validation', () => {
       expect(ipBinToDec(rec.bin)).not.toBe(rec.ip);
     });
   });
+
+  test('decimal IP is valid', () => {
+    const goodIPs = ['0.0.0.0', '1.2.3.4', '255.255.255.255'];
+    const badIPs = ['256.1.1.1', '1.2.3', 'a.2.3.4', '1.2.3.4.5', '1a.2.3.4'];
+
+    goodIPs.map(ip => { expect(ipIsValid(ip)).toBe(true); });
+    badIPs.map(ip => { expect(ipIsValid(ip)).not.toBe(true); });
+  });
+
+  test('binary string IP is valid', () => {
+    const goodBins = ['0'.repeat(32), '1'.repeat(32), '0'.repeat(16) + '1'.repeat(16)];
+    const badBins = ['0'.repeat(31), '1'.repeat(33), '', '1.1.1.1'];
+
+    goodBins.map(bin => expect(ipBinStringIsValid(bin)).toBe(true));
+    badBins.map(bin => expect(ipBinStringIsValid(bin)).toBe(false));
+  });
+
 });
 
