@@ -1,11 +1,9 @@
 {
   "name": "@elcontrastador/ip-string",
-  "version": "1.0.2",
+  "version": "1.0.3rc1",
   "description": "IP String Manipulation",
   "main": "./dist/index.js",
-  "bin": {
-    "ip-string": "./bin/t1.js"
-  },
+  "bin": {},
   "directories": {
     "test": "tests"
   },

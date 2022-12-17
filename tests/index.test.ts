@@ -48,6 +48,9 @@ describe('IP decimal string validation', () => {
     testDataFalse.map(rec => {
       expect(ipDecToBin(rec.ip)).not.toBe(rec.bin);
     });
+    expect(() => ipDecToBin('1.2.3.')).toThrow();
+    expect(() => ipDecToBin('1.2.3.4.5')).toThrow();
+    expect(() => ipDecToBin('1.2.3.4a')).toThrow();
 
   });
 
@@ -58,6 +61,10 @@ describe('IP decimal string validation', () => {
     testDataFalse.map(rec => {
       expect(ipBinToDec(rec.bin)).not.toBe(rec.ip);
     });
+
+    expect(() => ipBinToDec('1'.repeat(31))).toThrow();
+    expect(() => ipBinToDec('1'.repeat(33))).toThrow();
+    expect(() => ipBinToDec('a'.repeat(32))).toThrow();
   });
 
   test('decimal IP is valid', () => {
