@@ -6,7 +6,7 @@ import {
   ipHasFourOctetsWithOnlyDigits,
   ipIsValid,
   ipBinStringIsValid
-} from '../src/index';
+} from '../src/ip-string';
 
 const testDataTrue: { ip: string, bin: string }[] = [
   { ip: '123.213.130.119', bin: '01111011110101011000001001110111' },

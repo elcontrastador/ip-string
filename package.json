@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elcontrastador/ip-decbin-manip.git"
+    "url": "git+https://github.com/elcontrastador/ip-string.git"
   },
   "author": "Tyler Arrigoni <tyler@oneif.net>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/elcontrastador/ip-decbin-manip/issues"
+    "url": "https://github.com/elcontrastador/ip-string/issues"
   },
-  "homepage": "https://github.com/elcontrastador/ip-decbin-manip#readme",
+  "homepage": "https://github.com/elcontrastador/ip-string#readme",
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@babel/preset-env": "^7.20.2",
