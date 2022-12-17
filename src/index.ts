@@ -1,4 +1,18 @@
-import { ipDecToBin, ipBinToDec } from './ip-string';
+import {
+  ipDecToBin,
+  ipBinToDec,
+  ipHasFourOctetsWithinMinMax,
+  ipHasFourOctetsWithOnlyDigits,
+  ipIsValid,
+  ipBinStringIsValid
+} from './ip-string';
 
-export { ipDecToBin, ipBinToDec };
+export {
+  ipDecToBin,
+  ipBinToDec,
+  ipHasFourOctetsWithinMinMax,
+  ipHasFourOctetsWithOnlyDigits,
+  ipIsValid,
+  ipBinStringIsValid
+};
 
