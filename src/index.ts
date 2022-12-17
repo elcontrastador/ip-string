@@ -64,5 +64,6 @@ export const ipBinToDec = (binIp: string): string => {
   }
 }
 
+exports.ipDecToBin = ipDecToBin;
 // exports.ipDecToBin = ipDecToBin;
 
